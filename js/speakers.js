@@ -97,7 +97,7 @@ $('#myFormUpdate').on('submit', function (e) {
     var url = $( "#url" ).val();
 
     $.ajax({
-        url:"http://speakershopapp.azurewebsites.net/api/speakers",
+        url:"https://speakershopapp.azurewebsites.net/api/speakers/" + speakerId,
         type: 'PUT',
         data: JSON.stringify({
             "speakerId" : speakerId,
@@ -124,7 +124,7 @@ $('#myFormDelete').on('submit', function (e) {
     var speakerId = $("#speakerId").val();
 
     $.ajax({
-        url: "http://speakershopapp.azurewebsites.net/api/speakers",
+        url: "https://speakershopapp.azurewebsites.net/api/speakers/" + speakerId,
         type: 'DELETE',
         data: JSON.stringify({
             "speakerId" : speakerId
