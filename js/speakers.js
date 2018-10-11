@@ -1,7 +1,7 @@
 function listSpeakers() {
     // Call Web API to get a list of post
     $.ajax({
-        url: 'http://speakershopapp.azurewebsites.net/api/speakers',
+        url: 'https://speakershopapp.azurewebsites.net/api/speakers',
         type: 'GET',
         dataType: 'json',
         success: function (speakers) {
@@ -64,7 +64,7 @@ $('#myFormCreate').on('submit',function(e){
 
     // In my case, I need to fetch these data before custom actions
     $.ajax({
-        url: "http://speakershopapp.azurewebsites.net/api/speakers",
+        url: "https://speakershopapp.azurewebsites.net/api/speakers",
         type: 'POST',
         data: JSON.stringify({
             "speakerName": speakerName,
