@@ -208,6 +208,10 @@ body {
         font-weight: lighter;
     }
     .product {
+    
+        display: flex;
+        flex-direction: column;
+        position: relative;
         border: 1px solid #0c0803;
         background-color: white;
         border-radius: 20px;
