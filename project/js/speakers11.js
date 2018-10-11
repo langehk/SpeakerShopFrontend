@@ -26,14 +26,14 @@ function onGetSpeakersSuccess(speakers) {
             "                                <h3>"+speaker.speakerName+"</h3>\n" +
             "                            </div>\n" +
             "                        <div id=\"product_img\">\n" +
-            "                            <img src=" + speaker.url +"\" alt=\"\">\n" +
+            "                           <img src=" + speaker.url +" alt=\"\">\n" +
             "                        </div>\n" +
             "                        \n" +
             "                        <div id=\"product_desc\">\n" +
             "                           <p> "+ speaker.speakerDescription +" <br/> </p>\n" +
             "                        </div>\n" +
             "                        <div id=\"product_price\">\n" +
-            "                                <p>"+ speaker.price + " </p>\n" +
+            "                                <p> "+ speaker.price + ",- /STK "+ " </p>\n" +
             "                            </div>\n" +
             "                        <div id=\"product_shop_buy\">\n" +
             "                          \n" +
