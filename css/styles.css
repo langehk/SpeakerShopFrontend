@@ -3,7 +3,60 @@ body {
   font-family: 'Roboto Condensed', Helvetica, sans-serif;
   text-align: left;
   font-size: 18px;
-  color: #303030; }
+  color: #303030; 
+  background-color: #ededed;
+  grid-template-rows: 100px auto 150px;
+  display: grid;
+  grid-template-areas: 
+  "hd hd hd hd hd hd hd hd hd hd hd hd"
+  "mn mn mn mn mn mn mn mn mn mn mn mn"
+  "ft ft ft ft ft ft ft ft ft ft ft ft" ;
+}
+
+#logo_admin img{
+  height: 120px;
+}
+
+#logo_admin{
+  text-align: center;
+}
+
+header{
+  grid-area: hd;
+  min-height: 100px !important;
+  background: #454e46 !important; /* Old browsers */
+  background: -moz-linear-gradient(top, #454e46 0%, #899b8c 100%) !important; /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #454e46 0%,#899b8c 100%) !important; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #454e46 0%,#899b8c 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+      
+
+main{
+  grid-area: mn;
+  font-family: 'Roboto Condensed', Helvetica, sans-serif;
+  text-align: left;
+  font-size: 18px;
+  color: #303030; 
+  background-color: #ededed;  
+}
+
+footer {
+  grid-area: ft;
+  background: #899b8c !important; /* Old browsers */
+  background: -moz-linear-gradient(top, #899b8c -1%, #454e46 100%) !important; /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #899b8c -1%,#454e46 100%) !important; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #899b8c -1%,#454e46 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr) ;
+  grid-template-rows: 60px 40px 80px;    
+  }
+
+#copyright{
+  grid-column: span 12;
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+}
 
 .extend {
   table-layout: fixed;
@@ -15,3 +68,25 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.container{
+  margin-top: 20px;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+
+.container a i{
+  color:black;
+}
+
+.container a{
+  color:black;
+}
+
+.btn-danger{
+  background-color: #899B8C;
+  border-color: black;
+  margin-bottom: 20px;
+}
+
+
