@@ -47,7 +47,7 @@ function onGetSpeakersSuccess(speakers) {
             "                            </a>\n" +
             "                            </div>\n" +
             "                            <div id=\"product_info\">\n" +
-            "                                    <button onclick=getSpeakersById("+ speaker.speakerId +",'viewproduct.html');>MORE INFO</button>\n" +
+            "                                    <button onclick='getSpeakersById("+ speaker.speakerId +")'>MORE INFO</button>\n" +
             "                            </div>\n" +
             "                        </div>\n" +
             "                </div>")
@@ -55,9 +55,21 @@ function onGetSpeakersSuccess(speakers) {
 }
 
 
-function getSpeakersById(id, url) {
-    window.open(url,"_self");
+function getSpeakersById(id) {
+    window.open('../project/viewproduct.html?id=' + id,"_self");
+}
 
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+        function (m, key, value) {
+            vars[key] = value;
+        });
+    return vars;
+}
+
+function updateProductPage(){
+    var id = getUrlVars()['id'];
     $.ajax({
         url: 'https://speakershopapp.azurewebsites.net/api/speakers/' + id,
         type: 'GET',
@@ -72,9 +84,9 @@ function getSpeakersById(id, url) {
 }
 
 function onGetSpeakersByIdSuccess(speaker) {
-    $("#product_view").html("");
+    $(".product_view").html("");
 
-    $("#product_view").append("<div class=\"product_view\">\n" +
+    $(".product_view").append("<div class=\"product_view\">\n" +
         "            <div id=\"img_info\">\n" +
         "                <div id=\"product_view_img\">\n" +
         "                    <img src=" + speaker.url +" alt=\"\">\n" +
@@ -106,7 +118,7 @@ function onGetSpeakersByIdSuccess(speaker) {
         "\n" +
         "                <div id=\"product_buy_item\">\n" +
         "                    <div id=\"product_price\">\n" +
-        "                        <p class=\"detail_price\">"+speaker.price+"</p>\n" +
+        "                        <p class=\"detail_price\">"+speaker.price+" DKK</p>\n" +
         "                    </div>\n" +
         "                    <div id=\"product_cart\">\n" +
         "                    <a href=\"#\">\n" +
