@@ -78,7 +78,7 @@ $('#myFormCreate').on('submit',function(e){
         processData: false,
         contentType: 'application/json',
         success: function (comments) {
-            console.log("Create was succesful");
+            alert("The speaker was updated succesfully");
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -111,7 +111,7 @@ $('#myFormUpdate').on('submit', function (e) {
         processData: false,
         contentType: 'application/json',
         success:function (comments) {
-            console.log("The update was succesful");
+            alert("The speaker was updated succesfully");
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -132,7 +132,7 @@ $('#myFormDelete').on('submit', function (e) {
         processData: false,
         contentType: 'application/json',
         success:function (comments) {
-            console.log("The delete was succesful");
+            alert("The speaker was deleted succesfully");
         },
         error: function (request, message, error) {
             handleException(request, message, error);
