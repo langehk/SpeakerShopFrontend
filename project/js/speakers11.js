@@ -1,14 +1,18 @@
-$.ajax({
-    url: 'http://speakershopapp.azurewebsites.net/api/speakers',
-    type: 'GET',
-    dataType: 'json',
-    success: function (speakers) {
-        onGetSpeakersSuccess(speakers);
-    },
-    error: function (request, message, error) {
-        handleException(request, message, error);
-    }
-});
+var mySpeakerId = 0;
+
+function getSide1() {
+    $.ajax({
+        url: 'https://speakershopapp.azurewebsites.net/api/speakers?CurrentPage=1&ItemsPrPage=8',
+        type: 'GET',
+        dataType: 'json',
+        success: function (speakers) {
+            onGetSpeakersSuccess(speakers);
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+        }
+    });
+}
 
 
 
@@ -25,7 +29,7 @@ function onGetSpeakersSuccess(speakers) {
             "                        <div id=\"product_title\">\n" +
             "                                <h3>"+speaker.speakerName+"</h3>\n" +
             "                            </div>\n" +
-            "                        <div id=\"product_img\">\n" +
+            "                        <div class=\"product_img\">\n" +
             "                           <img src=" + speaker.url +" alt=\"\">\n" +
             "                        </div>\n" +
             "                        \n" +
@@ -43,10 +47,46 @@ function onGetSpeakersSuccess(speakers) {
             "                            </a>\n" +
             "                            </div>\n" +
             "                            <div id=\"product_info\">\n" +
-            "                                    <a href=\"#\">MORE INFO</a>\n" +
+            "                                    <button onclick=storeSpeakerAndOpenUrl("+ speaker.speakerId +",'viewproduct.html');>MORE INFO</button>\n" +
             "                            </div>\n" +
             "                        </div>\n" +
             "                </div>")
+    });
+}
+function storeSpeakerAndOpenUrl(id, url){
+    mySpeakerId = id;
+    window.open(url,"_self");
+}
 
+
+function getSpeakersById() {
+$.ajax({
+        url: 'https://speakershopapp.azurewebsites.net/api/speakers/' + mySpeakerId,
+        type: 'GET',
+        dataType: 'json',
+        success: function (speakers) {
+            onGetSpeakersByIdSuccess(speakers);
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+        }
+    });
+}
+
+function onGetSpeakersByIdSuccess(speaker) {
+    $("#product_view").html("");
+}
+
+function getSide2(){
+    $.ajax({
+        url: 'https://speakershopapp.azurewebsites.net/api/speakers?CurrentPage=2&ItemsPrPage=8',
+        type: 'GET',
+        dataType: 'json',
+        success: function (speakers) {
+            onGetSpeakersSuccess(speakers);
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+        }
     });
 }
