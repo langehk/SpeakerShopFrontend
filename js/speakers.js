@@ -42,21 +42,6 @@ function buildSpeakerRow(speaker) {
         "<td>" + speaker.price + "</td>" +
         "<td>" + speaker.url + "</td>" +
         "<td>" + speaker.brand + "</td>" +
-
-        "<td>" +
-        "<button type='button' " +
-        "class='btn btn-info' " +
-        "data-id='" + speaker.id + "'>" +
-        "<i class='fas fa-info-circle'></i>" +
-        "</button>" +
-        "</td >" +
-        "<td>" +
-        "<button type='button' " +
-        "class='btn btn-danger' " +
-        "data-id='" + speaker.id + "'>" +
-        "<i class='fas fa-minus-circle'></i>" +
-        "</button>" +
-        "</td >" +
         "</tr>";
     return ret;
 }
@@ -66,7 +51,7 @@ $('#speakerTable').on('click', 'button', event => {
 });
 
 
-$('#myForm').on('submit',function(e){
+$('#myFormCreate').on('submit',function(e){
     e.preventDefault();
     var speakerName = $( "#speakerName" ).val();
     var speakerDescription = $( "#speakerDescription" ).val();
@@ -100,3 +85,62 @@ $('#myForm').on('submit',function(e){
         }
     });
 });
+
+$('#myFormUpdate').on('submit', function (e) {
+    e.preventDefault();
+    var speakerId = $("#speakerId").val();
+    var speakerName = $( "#speakerName" ).val();
+    var speakerDescription = $( "#speakerDescription" ).val();
+    var brand = $( "#brand" ).val();
+    var color = $( "#color" ).val();
+    var price = $( "#price" ).val();
+    var url = $( "#url" ).val();
+
+    $.ajax({
+        url:"http://speakershopapp.azurewebsites.net/api/speakers",
+        type: 'PUT',
+        data: JSON.stringify({
+            "speakerId" : speakerId,
+            "speakerName": speakerName,
+            "speakerDescription": speakerDescription,
+            "brand" : brand,
+            "color": color,
+            "price" : price,
+            "url" : url
+        }),
+        processData: false,
+        contentType: 'application/json',
+        success:function (comments) {
+            console.log("The update was succesful");
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+        }
+    });
+});
+
+$('#myFormDelete').on('submit', function (e) {
+    e.preventDefault();
+    var speakerId = $("#speakerId").val();
+
+    $.ajax({
+        url: "http://speakershopapp.azurewebsites.net/api/speakers",
+        type: 'DELETE',
+        data: JSON.stringify({
+            "speakerId" : speakerId
+        }),
+        processData: false,
+        contentType: 'application/json',
+        success:function (comments) {
+            console.log("The delete was succesful");
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+        }
+    });
+});
+
+function handleException(request, message, error) {
+    console.log("Something went wrong")
+}
+
