@@ -43,10 +43,29 @@ function onGetSpeakersSuccess(speakers) {
             "                            </a>\n" +
             "                            </div>\n" +
             "                            <div id=\"product_info\">\n" +
-            "                                    <a href=\"#\">MORE INFO</a>\n" +
+            "                                    <a href=\"viewproduct.html\" onclick='getSpeakersById(speakerId)'>MORE INFO</a>\n" +
             "                            </div>\n" +
             "                        </div>\n" +
             "                </div>")
 
     });
 }
+
+function getSpeakersById(id) {
+    $.ajax({
+        url: 'http://speakershopapp.azurewebsites.net/api/speakers/' + id,
+        type: 'GET',
+        dataType: 'json',
+        success: function (speaker) {
+            onGetSpeakersByIdSuccess(speaker);
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+        }
+    });
+}
+
+function onGetSpeakersByIdSuccess(speaker) {
+
+}
+

@@ -78,7 +78,7 @@ $('#myFormCreate').on('submit',function(e){
         processData: false,
         contentType: 'application/json',
         success: function (comments) {
-            console.log("Yiiiaaaahhhhaaaaaa");
+            console.log("Create was succesful");
         },
         error: function (request, message, error) {
             handleException(request, message, error);
