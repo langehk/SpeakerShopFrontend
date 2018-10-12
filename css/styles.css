@@ -42,7 +42,7 @@ main{
 }
 
 main#deleteSpeaker{
-  height: auto;
+  height: 350px;
 }
 
 footer {
