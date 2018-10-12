@@ -44,7 +44,7 @@ main{
 main#deleteSpeaker{
   grid-area: mn;
   display: grid;
-  height: 350px;
+  height: auto;
 }
 
 footer {
