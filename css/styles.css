@@ -90,3 +90,11 @@ footer {
   border-color: black;
   margin-bottom: 20px;
 }
+
+#delete_speaker{
+  height: 350px;
+}
+
+#delete_button{
+  display: flex;
+}
