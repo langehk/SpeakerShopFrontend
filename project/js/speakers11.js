@@ -84,9 +84,12 @@ function updateProductPage(){
 }
 
 function onGetSpeakersByIdSuccess(speaker) {
+    $("#info_box").empty();
     $(".product_view").html("");
 
-    $(".product_view").append("<div class=\"product_view\">\n" +
+    $("#info_box").append("<a href=\"overview.html\">...</a> > <a href=\"overview2.html\">PRODUCTS 2</a> > <u>"+speaker.speakerName+"</u>")
+
+    $(".product_view").append(//"<div class=\"product_view\">\n" +
         "            <div id=\"img_info\">\n" +
         "                <div id=\"product_view_img\">\n" +
         "                    <img src=" + speaker.url +" alt=\"\">\n" +
