@@ -93,7 +93,7 @@ footer {
 
 .btn-success {
   background-color: #ededed !important;
-  border: none !important;
+  border: black!important;
 }
 
 #delete_speaker{
