@@ -104,7 +104,7 @@ footer {
 }
 
 #delete_speaker{
-  height: 350px;
+  height: auto;
 }
 
 #delete_button{
