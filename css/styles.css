@@ -38,6 +38,7 @@ main{
   font-size: 18px;
   color: #303030; 
   background-color: #ededed;  
+  height: auto;
 }
 
 footer {
