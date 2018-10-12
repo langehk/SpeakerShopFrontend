@@ -41,6 +41,10 @@ main{
   height: auto;
 }
 
+main#deleteSpeaker{
+  height: auto;
+}
+
 footer {
   grid-area: ft;
   background: #899b8c !important; /* Old browsers */
