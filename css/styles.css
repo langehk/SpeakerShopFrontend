@@ -91,6 +91,11 @@ footer {
   margin-bottom: 20px;
 }
 
+.btn-success {
+  background-color: #ededed !important;
+  border: none !important;
+}
+
 #delete_speaker{
   height: 350px;
 }
